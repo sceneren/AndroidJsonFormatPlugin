@@ -6,7 +6,7 @@ Android Studio 的离线日志格式化与 Kotlin data class 生成插件。IDE 
 
 ## 安装与使用
 
-1. 下载或构建 `build/distributions/logcat2kt-1.0.2.zip`，**无需解压**。已安装旧版时用同样方式覆盖升级。
+1. 在 [GitHub Releases](https://github.com/sceneren/AndroidJsonFormatPlugin/releases/latest) 下载 `logcat2kt-1.0.2.zip`，或自行构建 `build/distributions/logcat2kt-1.0.2.zip`，**无需解压**。已安装旧版时用同样方式覆盖升级。
 2. Android Studio → Settings / Preferences → Plugins → 齿轮菜单 → Install Plugin from Disk，选择 ZIP。
 3. 按 IDE 提示启用或重启，在右侧工具栏打开 **Logcat2Kt**。入口隐藏时，可通过 View → Tool Windows → Logcat2Kt 打开。
 4. 在 **Logcat 中选中日志，右键 → 发送到 Logcat2Kt**。插件自动展开右侧工具窗口、填入选区并解析。每次发送替换上一批输入；剪贴板不会被修改。

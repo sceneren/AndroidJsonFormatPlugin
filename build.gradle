@@ -1,0 +1,47 @@
+plugins { id 'java' }
+
+group = 'io.github.rendonglugit.logcat2kt'
+version = '1.0.2'
+
+repositories {
+    mavenCentral()
+    maven { url = uri('https://www.jetbrains.com/intellij-repository/releases') }
+    maven { url = uri('https://packages.jetbrains.team/maven/p/ij/intellij-dependencies') }
+}
+
+dependencies {
+    compileOnly 'com.jetbrains.intellij.platform:core:251.25410.129'
+    compileOnly 'com.jetbrains.intellij.platform:ide:251.25410.129'
+    compileOnly 'com.jetbrains.intellij.platform:core-ui:251.25410.129'
+    implementation 'org.mozilla:rhino:1.8.0'
+}
+
+java { sourceCompatibility = JavaVersion.VERSION_17; targetCompatibility = JavaVersion.VERSION_17 }
+tasks.withType(JavaCompile).configureEach { options.encoding = 'UTF-8'; options.release = 17 }
+tasks.withType(AbstractArchiveTask).configureEach {
+    preserveFileTimestamps = false
+    reproducibleFileOrder = true
+}
+tasks.register('engineTest', JavaExec) {
+    dependsOn testClasses
+    classpath = sourceSets.test.runtimeClasspath
+    mainClass = 'io.github.logcat2kt.EngineTest'
+    jvmArgs '-Djava.awt.headless=true'
+}
+tasks.register('panelTest', JavaExec) {
+    dependsOn testClasses
+    classpath = sourceSets.test.runtimeClasspath
+    mainClass = 'io.github.logcat2kt.PanelTest'
+    jvmArgs '-Djava.awt.headless=true'
+}
+tasks.named('jar') {
+    archiveFileName = "logcat2kt-${project.version}.jar"
+    into('META-INF') { from 'LICENSE', 'THIRD_PARTY_NOTICES.md' }
+}
+tasks.register('buildPlugin', Zip) {
+    dependsOn jar, engineTest, panelTest
+    archiveFileName = "logcat2kt-${project.version}.zip"
+    destinationDirectory = layout.buildDirectory.dir('distributions')
+    into('logcat2kt/lib') { from tasks.jar; from configurations.runtimeClasspath }
+}
+tasks.named('check') { dependsOn 'engineTest', 'panelTest' }

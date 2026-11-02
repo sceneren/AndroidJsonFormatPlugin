@@ -1,0 +1,14 @@
+.gradle/
+build/
+.cache/
+upstream/
+.idea/
+*.iml
+local.properties
+verification-*/
+vendor/samples/
+.env
+.env.*
+!.env.example
+*.pem
+*.key

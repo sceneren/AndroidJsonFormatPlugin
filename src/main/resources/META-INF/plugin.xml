@@ -1,0 +1,25 @@
+<idea-plugin>
+    <id>io.github.logcat2kt.android-studio</id>
+    <name>Logcat2Kt</name>
+    <version>1.0.2</version>
+    <vendor>Logcat2Kt contributors</vendor>
+    <description><![CDATA[Offline Logcat to collapsible JSON and Kotlin data classes, based on rendonglugit/logcat2kt (MIT).
+        Supports truncated logs, Kotlin/Java toString, Protobuf text and hex, Gson/Moshi/kotlinx annotations.
+        Open Logcat2Kt from the right tool window stripe. Android Studio 2025.1.1 and later (platform 251+).
+        Native UI; no JCEF, network connection, Kotlin plugin or Android plugin dependency required.
+    ]]></description>
+    <idea-version since-build="251"/>
+    <depends>com.intellij.modules.platform</depends>
+    <depends optional="true" config-file="logcat2kt-android.xml">org.jetbrains.android</depends>
+    <extensions defaultExtensionNs="com.intellij">
+        <toolWindow id="Logcat2Kt" anchor="right" icon="/icons/logcat2kt.svg"
+                    factoryClass="io.github.logcat2kt.LogcatToolWindowFactory"/>
+    </extensions>
+    <actions>
+        <action id="Logcat2Kt.SendSelection" class="io.github.logcat2kt.SendSelectionAction"
+                text="发送到 Logcat2Kt" description="将选中的日志发送到 Logcat2Kt 并打开右侧工具窗口"
+                icon="/icons/logcat2kt.svg">
+            <add-to-group group-id="EditorPopupMenu" anchor="last"/>
+        </action>
+    </actions>
+</idea-plugin>

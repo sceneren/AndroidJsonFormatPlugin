@@ -1,0 +1,24 @@
+// Re-run explicitly after checking out the desired upstream revision.
+import fs from 'node:fs';
+import path from 'node:path';
+import { execFileSync } from 'node:child_process';
+import { patchCore } from './core-patches.mjs';
+const source = process.argv[2] || 'upstream';
+const html = fs.readFileSync(path.join(source, 'index.html'), 'utf8');
+const script = html.match(/<script>([\s\S]*?)<\/script>/)[1];
+const start = script.indexOf("  'use strict';");
+const end = script.indexOf("  var elInput = document.getElementById('input');");
+const exports = script.match(/window\.__l2k = (\{[\s\S]*?\n  \});/)[1];
+if (start < 0 || end < start) throw new Error('Upstream boundaries changed; inspect before updating');
+fs.mkdirSync('src/main/resources/web', {recursive:true});
+fs.mkdirSync('vendor', {recursive:true});
+fs.copyFileSync(path.join(source, 'index.html'), 'src/main/resources/web/index.html');
+fs.writeFileSync('src/main/resources/web/core.js', '// Derived from upstream index.html with scripts/core-patches.mjs; see THIRD_PARTY_NOTICES.md.\nvar L2K = (function () {\n' + patchCore(script.slice(start, end)) + '\n return ' + exports + ';\n})();\n');
+fs.copyFileSync(path.join(source, 'LICENSE'), 'src/main/resources/web/LICENSE');
+fs.copyFileSync(path.join(source, 'test.js'), 'vendor/upstream-test.cjs');
+fs.mkdirSync('vendor/samples', {recursive:true});
+fs.copyFileSync(path.join(source, 'samples/long-text.log'), 'vendor/samples/long-text.log');
+fs.writeFileSync('vendor/revision.txt', execFileSync('git', ['-C', source, 'rev-parse', 'HEAD'], {encoding:'utf8'}));
+const sample = script.match(/var SAMPLE = (\[[\s\S]*?\]\.join\('\\n'\));/)[1];
+fs.writeFileSync('src/main/resources/web/sample.log', Function('return '+sample)());
+console.log('Vendored parser, original page, MIT notice, regression tests and sample.');

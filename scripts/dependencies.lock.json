@@ -1,0 +1,67 @@
+[
+  {
+    "path": ".cache/sdk/core-ui.jar",
+    "url": "https://www.jetbrains.com/intellij-repository/releases/com/jetbrains/intellij/platform/core-ui/251.25410.129/core-ui-251.25410.129.jar",
+    "sha256": "3b7ac43f43f79e7aa9b2863369dfedebdb2ab7cd4e37775c2f9233a3d74d6351"
+  },
+  {
+    "path": ".cache/sdk/core.jar",
+    "url": "https://www.jetbrains.com/intellij-repository/releases/com/jetbrains/intellij/platform/core/251.25410.129/core-251.25410.129.jar",
+    "sha256": "6d27eb1093319aa52cdde75af6bc549b66f22ed156bb5caf381ae7144f3aa2fe"
+  },
+  {
+    "path": ".cache/sdk/editor-ui.jar",
+    "url": "https://www.jetbrains.com/intellij-repository/releases/com/jetbrains/intellij/platform/editor-ui/251.25410.129/editor-ui-251.25410.129.jar",
+    "sha256": "245a2877e12b25eaf37e5142f0380401ca7cae714405b7efca2f654b2a64fa40"
+  },
+  {
+    "path": ".cache/sdk/editor.jar",
+    "url": "https://www.jetbrains.com/intellij-repository/releases/com/jetbrains/intellij/platform/editor/251.25410.129/editor-251.25410.129.jar",
+    "sha256": "b9c9f364acd02f99eb6a54046ef1005b8f71d09dd95ddebea5c55eada8d59611"
+  },
+  {
+    "path": ".cache/sdk/extensions.jar",
+    "url": "https://www.jetbrains.com/intellij-repository/releases/com/jetbrains/intellij/platform/extensions/251.25410.129/extensions-251.25410.129.jar",
+    "sha256": "4eed3f20016072bb53fc738b866a7117d449cb6b7ed8543107740f11b80f6f9c"
+  },
+  {
+    "path": ".cache/sdk/ide-core.jar",
+    "url": "https://www.jetbrains.com/intellij-repository/releases/com/jetbrains/intellij/platform/ide-core/251.25410.129/ide-core-251.25410.129.jar",
+    "sha256": "260aad5346d1786c5f8885270d870722a48e74a8c923cdb05e0ad9504cd0f76d"
+  },
+  {
+    "path": ".cache/sdk/ide.jar",
+    "url": "https://www.jetbrains.com/intellij-repository/releases/com/jetbrains/intellij/platform/ide/251.25410.129/ide-251.25410.129.jar",
+    "sha256": "b168925d4659098f5b5866cacd4a6574bea8c7a797481d9b82c4f5555dd07aad"
+  },
+  {
+    "path": ".cache/sdk/project-model.jar",
+    "url": "https://www.jetbrains.com/intellij-repository/releases/com/jetbrains/intellij/platform/project-model/251.25410.129/project-model-251.25410.129.jar",
+    "sha256": "bd3866ac7f98360379bfc1b596d2527d6c7184baa89bcfa3f9bf2a162f093c54"
+  },
+  {
+    "path": ".cache/sdk/util-base.jar",
+    "url": "https://www.jetbrains.com/intellij-repository/releases/com/jetbrains/intellij/platform/util-base/251.25410.129/util-base-251.25410.129.jar",
+    "sha256": "8e40b6b26b3fc4c3961c658733db79e4f5eff6c20c5da15d0d48c5a5db7d4f62"
+  },
+  {
+    "path": ".cache/sdk/util-rt.jar",
+    "url": "https://www.jetbrains.com/intellij-repository/releases/com/jetbrains/intellij/platform/util-rt/251.25410.129/util-rt-251.25410.129.jar",
+    "sha256": "ef604bacb5fcc4dd55dcc5ecaa887fc70a54e95638ed39a4ca3f4bdfde48846a"
+  },
+  {
+    "path": ".cache/sdk/util.jar",
+    "url": "https://www.jetbrains.com/intellij-repository/releases/com/jetbrains/intellij/platform/util/251.25410.129/util-251.25410.129.jar",
+    "sha256": "2e4cce956baa4170ba4ce9801b88b8608a8dd7821ec7a375e51f5973b57f02af"
+  },
+  {
+    "path": ".cache/rhino-1.8.0.jar",
+    "url": "https://repo.maven.apache.org/maven2/org/mozilla/rhino/1.8.0/rhino-1.8.0.jar",
+    "sha256": "e7ff37ec00b4c19ea16f42b5b3a601616d559dbb76e65bc9d094bd6bda2a925d"
+  },
+  {
+    "path": ".cache/annotations-26.0.2.jar",
+    "url": "https://repo.maven.apache.org/maven2/org/jetbrains/annotations/26.0.2/annotations-26.0.2.jar",
+    "sha256": "2037be378980d3ba9333e97955f3b2cde392aa124d04ca73ce2eee6657199297"
+  }
+]

@@ -1,0 +1,7 @@
+<idea-plugin>
+    <actions>
+        <reference ref="Logcat2Kt.SendSelection">
+            <add-to-group group-id="Logcat.PopupActions" anchor="last"/>
+        </reference>
+    </actions>
+</idea-plugin>
